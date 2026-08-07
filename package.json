@@ -1,0 +1,37 @@
+{
+  "name": "keydrift",
+  "version": "1.0.0",
+  "description": "Environment variable drift detector and schema generator for multi-environment projects",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "keydrift": "./bin/keydrift.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "dotenv",
+    "env",
+    "environment-variables",
+    "drift-detection",
+    "typescript",
+    "cli",
+    "linter"
+  ],
+  "author": "Andrea Pallotta <andreapallotta.dev@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndreaPallotta/keydrift.git"
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}
