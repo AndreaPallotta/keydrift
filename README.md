@@ -2,7 +2,7 @@
 
 Environment variable drift detector and schema generator for multi-environment projects.
 
-![Keydrift Icon](docs/icon.jpg)
+![Keydrift Icon](https://raw.githubusercontent.com/AndreaPallotta/keydrift/main/docs/icon.jpg)
 
 ## Features
 
