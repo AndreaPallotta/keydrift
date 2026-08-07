@@ -1,6 +1,6 @@
 {
   "name": "keydrift",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Environment variable drift detector and schema generator for multi-environment projects",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
