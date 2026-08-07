@@ -1,18 +1,17 @@
-name: Publish NPM Package
+name: Publish to NPM
 
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types: [created]
 
 jobs:
   publish:
-    name: Build & Publish to NPM
+    name: Build & Publish to NPM (OIDC Trusted Publishing)
     runs-on: ubuntu-latest
 
     permissions:
       contents: read
-      id-token: write
+      id-token: write # Required for OIDC and provenance
 
     steps:
       - name: Checkout Repository
@@ -21,8 +20,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Update npm CLI
+        run: npm install -g npm@latest
 
       - name: Install Dependencies
         run: npm ci
@@ -33,7 +35,5 @@ jobs:
       - name: Build Package
         run: npm run build
 
-      - name: Publish to NPM
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to NPM (OIDC Trusted Publishing)
+        run: npm publish --provenance --access public
